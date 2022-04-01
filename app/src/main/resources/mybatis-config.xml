@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+    <environments default="xe">
+        <environment id="xe">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driverClassName}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+                <property name="poolMaximumActiveConnections" value="2"/>
+                <!--DEFAULT 10 -->
+            </dataSource>
+        </environment>
+        <environment id="fasa">
+            <transactionManager type="JDBC"/>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="${jdbcFasa.driverClassName}"/>
+                <property name="url" value="${jdbcFasa.url}"/>
+                <property name="username" value="${jdbcFasa.username}"/>
+                <property name="password" value="${jdbcFasa.password}"/>
+            </dataSource>
+        </environment>
+        <environment id="adm">
+            <transactionManager type="JDBC"/>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="${jdbcApps.driverClassName}"/>
+                <property name="url" value="${jdbcApps.url}"/>
+                <property name="username" value="${jdbcApps.username}"/>
+                <property name="password" value="${jdbcApps.password}"/>
+            </dataSource>
+        </environment>
+        <environment id="rac">
+            <transactionManager type="JDBC"/>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="${jdbcRAC.driverClassName}"/>
+                <property name="url" value="${jdbcRAC.url}"/>
+                <property name="username" value="${jdbcRAC.username}"/>
+                <property name="password" value="${jdbcRAC.password}"/>
+            </dataSource>
+        </environment>
+        <environment id="matriz">
+            <transactionManager type="JDBC"/>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="${jdbcMatriz.driverClassName}"/>
+                <property name="url" value="${jdbcMatriz.url}"/>
+                <property name="username" value="${jdbcMatriz.username}"/>
+                <property name="password" value="${jdbcMatriz.password}"/>
+            </dataSource>
+        </environment>        
+        <!--i-mvasquezma20201021-->
+        <environment id="fide">
+            <transactionManager type="JDBC"/>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="${jdbcFide.driverClassName}"/>
+                <property name="url" value="${jdbcFide.url}"/>
+                <property name="username" value="${jdbcFide.username}"/>
+                <property name="password" value="${jdbcFide.password}"/>
+            </dataSource>
+        </environment>
+        <!--f-mvasquezma20201021-->        
+    </environments>
+    <mappers>
+
+        <mapper class="pe.farmaciasperuanas.posunificado.mybatis.MapperRecaudacion"/>
+        
+    </mappers>
+</configuration>
